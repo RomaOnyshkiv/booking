@@ -1,5 +1,6 @@
 package utils;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
@@ -20,6 +21,7 @@ public class BaseTest {
     @BeforeSuite
     protected void initDriver() {
         loadProperties();
+        WebDriverManager.chromedriver().setup();
         if (driver == null) {
             driver = new ChromeDriver();
         }
